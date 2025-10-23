@@ -1,9 +1,9 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+# db/seeds.rb
+
+Airport.find_or_create_by(code: "SFO") { |airport| airport.name = "San Francisco International" }
+Airport.find_or_create_by(code: "NYC") { |airport| airport.name = "New York" }
+Airport.find_or_create_by(code: "LAX") { |airport| airport.name = "Los Angeles International" }
+Airport.find_or_create_by(code: "ORD") { |airport| airport.name = "Chicago O'Hare" }
+Airport.find_or_create_by(code: "DFW") { |airport| airport.name = "Dallas/Fort Worth" }
+Airport.find_or_create_by(code: "ATL") { |airport| airport.name = "Hartsfield-Jackson Atlanta" }
+Airport.find_or_create_by(code: "DEN") { |airport| airport.name = "Denver International" }
