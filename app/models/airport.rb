@@ -1,6 +1,6 @@
 class Airport < ApplicationRecord
   validates :code, presence: true, uniqueness: true, length: { is: 3 }
 
-  has_many :flights_from, class_name: 'Flight', foreign_key: 'airport_from_id'
-  has_many :flights_to, class_name: 'Flight', foreign_key: 'airport_to_id'
+  has_many :departing_flights, class_name: 'Flight', foreign_key: 'departure_airport_id'
+  has_many :arriving_flights, class_name: 'Flight', foreign_key: 'arrival_airport_id'
 end
