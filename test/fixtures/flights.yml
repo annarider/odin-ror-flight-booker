@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  airport_from: one
+  airport_to: one
+  start: 2025-10-23 10:03:24
+  duration: 1
+  number_of_passengers: 1
+
+two:
+  airport_from: two
+  airport_to: two
+  start: 2025-10-23 10:03:24
+  duration: 1
+  number_of_passengers: 1
