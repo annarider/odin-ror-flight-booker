@@ -1,2 +1,33 @@
-<h1>Flights#index</h1>
-<p>Find me in app/views/flights/index.html.erb</p>
+<h1>Flight Booker</h1>
+
+<%= form_with url: flights_path, method: :get, local: true do |form| %>
+  <div>
+    <%= form.label :departure_airport_id, 'From:' %>
+    <%= form.collection_select :departure_airport_id, @airports, :id, :code, { include_blank: 'Select departure airport' } %>
+  </div>
+
+  <div>
+    <%= form.label :arrival_airport_id, 'To:' %>
+    <%= form.collection_select :arrival_airport_id, @airports, :id, :code, { include_blank: 'Select arrival airport' } %>
+  </div>
+
+  <div>
+    <%= form.label :start, 'Date:' %>
+    <%= form.date_field :start %>
+  </div>
+
+  <%= form.submit 'Search Flights' %>
+<% end %>
+
+<% if @flights.any? %>
+  <h2>Available Flights</h2>
+  <% @flights.each do |flight| %>
+    <div>
+      <p>
+        <strong><%= flight.departure_airport.code %></strong> to <strong><%= flight.arrival_airport.code %></strong>
+        (date: <%= flight.start.strftime('%B %d, %Y') %>).
+        Duration: <%= flight.duration %> minutes
+      </p>
+    </div>
+  <% end %>
+<% end %>
