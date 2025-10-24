@@ -13,7 +13,7 @@
 
   <div>
     <%= form.label :num_passengers, 'Number of passengers:' %>
-    <%= form.number_field :num_passengers, min: 1, value: 1 %>
+    <%= form.select :num_passengers, (1..4).to_a, { selected: 1 } %>
   </div>
 
   <div>
