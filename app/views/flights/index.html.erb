@@ -12,6 +12,11 @@
   </div>
 
   <div>
+    <%= form.label :num_passengers, 'Number of passengers:' %>
+    <%= form.number_field :num_passengers, min: 1, value: 1 %>
+  </div>
+
+  <div>
     <%= form.label :start, 'Date:' %>
     <%= form.date_field :start %>
   </div>
