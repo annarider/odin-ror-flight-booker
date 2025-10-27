@@ -5,6 +5,12 @@ class Flight < ApplicationRecord
   validates :start, :duration, presence: true
   validate :departure_airport_not_equal_arrival_airport
 
+  def self.search(departure_airport_id, arrival_airport_id, date)
+    where(departure_airport_id: departure_airport_id,
+          arrival_airport_id: arrival_airport_id)
+      .where('DATE(start) = ?', date)
+  end
+
   private
 
   def departure_airport_not_equal_arrival_airport
