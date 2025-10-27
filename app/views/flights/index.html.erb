@@ -3,24 +3,24 @@
 <%= form_with url: flights_path, method: :get, local: true do |form| %>
   <div>
     <%= form.label :departure_airport_id, 'From:' %>
-    <%= form.collection_select :departure_airport_id, @airports, :id, :code, { include_blank: 'Select departure airport' } %>
+    <%= form.collection_select :departure_airport_id, @airports, :id, :code, { include_blank: 'Select departure airport', selected: params[:departure_airport_id] } %>
   </div>
 
   <div>
     <%= form.label :arrival_airport_id, 'To:' %>
-    <%= form.collection_select :arrival_airport_id, @airports, :id, :code, { include_blank: 'Select arrival airport' } %>
+    <%= form.collection_select :arrival_airport_id, @airports, :id, :code, { include_blank: 'Select arrival airport', selected: params[:arrival_airport_id] } %>
   </div>
 
   <div>
     <%= form.label :num_passengers, 'Number of passengers:' %>
-    <%= form.select :num_passengers, (1..4).to_a, { selected: 1 } %>
+    <%= form.select :num_passengers, (1..4).to_a, { selected: 1, selected: params[:num_passengers] } %>
   </div>
 
   <div>
     <%= form.label :start, 'Date:' %>
     <%= form.select :start,
-                        options_for_select(@available_dates.map { |date| [date.strftime('%B %d, %Y'), date] }),
-                        { include_blank: 'Select a date' } %>
+                        options_for_select(@available_dates.map { |date| [date.strftime('%B %d, %Y'), date] }, params[:start]),
+                        { include_blank: 'Select a date'} %>
   </div>
 
   <%= form.submit 'Search Flights' %>
