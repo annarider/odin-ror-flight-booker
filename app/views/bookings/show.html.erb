@@ -1,0 +1,12 @@
+<h1>Booking Confirmation</h1>
+<p>Flight Route: 
+  <strong><%= @booking.flight.departure_airport.code %></strong> to 
+  <strong><% @booking.flight.arrival_airport.code %></strong> </p>
+<h2>Passengers (<%= @booking.passengers.count %>) </h2>
+  <ul>
+    <% @booking.passengers.each do |passenger| %>
+      <li> <% passenger.name %> </li>
+    <% end %>
+  </ul>
+
+<p>Your booking is confirmed.</p>
