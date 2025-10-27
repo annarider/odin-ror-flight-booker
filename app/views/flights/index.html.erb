@@ -45,7 +45,7 @@
 
     <%= form.submit 'Select Flight' %>
   <% end %>
-<% else %>
+<% elsif search_params_present? %>
   <p><strong>No flights available for your selected criteria.</strong></p>
   <p>Try searching again with different criteria.</p>
 <% end %>
