@@ -5,7 +5,7 @@
 <h2>Passengers (<%= @booking.passengers.count %>) </h2>
   <ul>
     <% @booking.passengers.each do |passenger| %>
-      <li> <% passenger.name %> </li>
+      <li> <%= passenger.name %> </li>
     <% end %>
   </ul>
 
