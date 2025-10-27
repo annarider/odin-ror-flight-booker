@@ -18,7 +18,9 @@
 
   <div>
     <%= form.label :start, 'Date:' %>
-    <%= form.date_field :start %>
+    <%= form.select :start,
+                        options_for_select(@available_dates.map { |date| [date.strftime('%B %d, %Y'), date] }),
+                        { include_blank: 'Select a date' } %>
   </div>
 
   <%= form.submit 'Search Flights' %>
