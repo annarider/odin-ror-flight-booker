@@ -13,6 +13,12 @@ export default class extends Controller {
   removePassenger(event) {
     event.preventDefault()
 
+    // Prevent removing the last passenger
+    if (this.passengerTargets.length <= 1) {
+      alert("You must have at least one passenger")
+      return
+    }
+
     const passengerField = event.target.closest('[data-nested-form-target="passenger"]')
 
     // Check if this is an existing record (has a persisted ID)
