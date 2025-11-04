@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["container", "template"]
+  static targets = ["container", "template", "passengers"]
 
   addPassenger(event) {
     event.preventDefault()
@@ -13,12 +13,15 @@ export default class extends Controller {
   removePassenger(event) {
     event.preventDefault()
 
+    // Count only visible passengers
+    const visiblePassengers = this.passengerTargets.filter(p => p.style.display !== 'none')
+    
     // Prevent removing the last passenger
     if (this.passengerTargets.length <= 1) {
       alert("You must have at least one passenger")
       return
     }
-
+    
     const passengerField = event.target.closest('[data-nested-form-target="passenger"]')
 
     // Check if this is an existing record (has a persisted ID)
