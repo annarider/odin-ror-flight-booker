@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["container", "template", "passengers"]
+  static targets = ["container", "template", "passenger"]
 
   addPassenger(event) {
     event.preventDefault()
@@ -17,7 +17,7 @@ export default class extends Controller {
     const visiblePassengers = this.passengerTargets.filter(p => p.style.display !== 'none')
     
     // Prevent removing the last passenger
-    if (this.passengerTargets.length <= 1) {
+    if (visiblePassengers.length <= 1) {
       alert("You must have at least one passenger")
       return
     }
