@@ -13,18 +13,25 @@
 
   <div data-nested-form-target="container">
     <%= form.fields_for :passengers do |passenger_form| %>
-      <div>
+      <div data-nested-form-target="passenger">
+      <%= passenger_form.hidden_field :_destroy %>
       <%= passenger_form.label :name, 'Passenger Name:' %>
       <%= passenger_form.text_field :name %>
+      <button type="button" data-action="click->nested-form#removePassenger">
+        Remove Passenger
+      </button>
       </div>
     <% end %>
   </div>
 
   <template data-nested-form-target="template">
-    <div>
+    <div data-nested-form-target="passenger">
       <%= form.fields_for :passengers, Passenger.new, child_index: 'NEW_RECORD' do |passenger_form| %>
         <%= passenger_form.label :name, 'Passenger Name:' %>
         <%= passenger_form.text_field :name %>
+        <button type="button" data-action="click->nested-form#removePassenger">
+          Remove Passenger
+        </button>
       <% end %>
     </div>
   </template>
