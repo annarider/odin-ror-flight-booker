@@ -73,4 +73,5 @@ Rails.application.configure do
   # 2025-11-05 AR: Add config for Letter Opener gem to preview emails
   config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true
+  config.active_job.queue_adapter = :inline
 end
