@@ -1,0 +1,8 @@
+Thanks for booking a flight through FlightBooker.com, <%= @user.name %>
+========================================================================
+  
+You have booked this flight: from <%= @flight.departure_airport.code %> to <%= @flight.arrival_airport.code %>.
+
+The flight takes place on <%= @flight.date %> (duration: <%= @flight.duration %>).
+
+Thanks for flying with us. Have a great day!
