@@ -3,6 +3,9 @@
   You have booked this flight: from <%= @flight.departure_airport.code %> to <%= @flight.arrival_airport.code %>.
 </p>
 <p>
-  The flight takes place on <%= @flight.date %> (duration: <%= @flight.duration %>).
+  The flight takes place on <%= @flight.start.strftime('%B %d, %Y') %> (duration: <%= @flight.duration %>).
 </p>
+
+<p>If you have any problems, contact us with this Flight ID: <strong> <%= @flight.id %> </strong>.</p>
+
 <p>Thanks for flying with us. Have a great day!</p>
