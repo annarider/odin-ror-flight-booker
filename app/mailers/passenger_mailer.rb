@@ -3,6 +3,7 @@ class PassengerMailer < ApplicationMailer
 
   def confirmation_email
     @passenger = params[:passenger]
+    @flight = @passenger.booking.flight
     @url = 'http://localhost:3000/'
     mail(to: @passenger.email, subject: "Flight Confirmation")
   end
