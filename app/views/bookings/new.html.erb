@@ -10,6 +10,7 @@
 
 <%= form_with model: @booking, local: true, data: { controller: "nested-form" } do |form| %>
   <%= form.hidden_field :flight_id, value: @flight.id %>
+  <%= form.hidden_field :number_of_passengers, value: @booking.number_of_passengers %>
 
   <div data-nested-form-target="container">
     <%= form.fields_for :passengers do |passenger_form| %>
